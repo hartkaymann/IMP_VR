@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
+using System.Collections.Generic;
 
 public class SteeringWheelController : MonoBehaviour
 {
@@ -50,14 +50,22 @@ public class SteeringWheelController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if (other.CompareTag("GameController"))
         {
-            if (rightHandOnWheel == false && false) // When R primary trigger pressed
+            // When R primary trigger pressed
+            InputManager.Instance.RightController.TryGetFeatureValue(CommonUsages.grip, out float rGrip);
+            if (rightHandOnWheel == false && rGrip != 0f)
             {
+                Debug.Log("Grabbing Wheel with right hand");
                 PlaceHandOnWheel(ref rightHand, ref rightHandOriginalParent, ref rightHandOnWheel);
             }
-            if (leftHandOnWheel == false && false) // When L primary trigger pressed
-            { 
+
+            // When L primary trigger pressed
+            InputManager.Instance.LeftController.TryGetFeatureValue(CommonUsages.grip, out float lGrip);
+            if (leftHandOnWheel == false && lGrip != 0f)
+            {
+                Debug.Log("Grabbing Wheel with left hand");
                 PlaceHandOnWheel(ref leftHand, ref leftHandOriginalParent, ref leftHandOnWheel);
             }
         }
@@ -69,9 +77,9 @@ public class SteeringWheelController : MonoBehaviour
         var shortestDistance = Vector3.Distance(snapPositions[0].position, hand.transform.position);
         var bestSnap = snapPositions[0];
 
-        foreach(var snapPosition in snapPositions)
+        foreach (var snapPosition in snapPositions)
         {
-            if(snapPosition.childCount == 0)
+            if (snapPosition.childCount == 0)
             {
                 var distance = Vector3.Distance(snapPosition.position, hand.transform.position);
                 if (distance < shortestDistance)
@@ -94,41 +102,41 @@ public class SteeringWheelController : MonoBehaviour
 
     private void ReleaseHandsFromWheel()
     {
-        if (rightHandOnWheel == true && false) // When R primary trigger released
+
+        // When R primary trigger released
+        InputManager.Instance.RightController.TryGetFeatureValue(CommonUsages.grip, out float rGrip);
+        if (rightHandOnWheel == true && rGrip == 0f)
         {
             rightHand.transform.parent = rightHandOriginalParent;
             rightHand.transform.position = rightHandOriginalParent.position;
             rightHandOnWheel = false;
         }
 
-        if (leftHandOnWheel == true && false) // When L primary trigger released
+        // When L primary trigger released
+        InputManager.Instance.LeftController.TryGetFeatureValue(CommonUsages.grip, out float lGrip);
+        if (leftHandOnWheel == true && lGrip == 0f)
         {
             leftHand.transform.parent = leftHandOriginalParent;
             leftHand.transform.position = leftHandOriginalParent.position;
             leftHandOnWheel = false;
         }
-
-        if(!leftHandOnWheel && !rightHandOnWheel)
-        {
-            transform.parent = null;
-        }
     }
 
     private void ConvertHandRotationToSteeringWheelRotation()
     {
-        if(rightHandOnWheel && !leftHandOnWheel)
+        if (rightHandOnWheel && !leftHandOnWheel)
         {
             Quaternion newRot = Quaternion.Euler(0, 0, rightHandOriginalParent.transform.rotation.eulerAngles.z);
             directionalObject.rotation = newRot;
             transform.parent = directionalObject;
-        } 
-        else if(!rightHandOnWheel && leftHandOnWheel)
+        }
+        else if (!rightHandOnWheel && leftHandOnWheel)
         {
             Quaternion newRot = Quaternion.Euler(0, 0, leftHandOriginalParent.transform.rotation.eulerAngles.z);
             directionalObject.rotation = newRot;
             transform.parent = directionalObject;
         }
-        else if(rightHandOnWheel && leftHandOnWheel)
+        else if (rightHandOnWheel && leftHandOnWheel)
         {
             Quaternion newRotLeft = Quaternion.Euler(0, 0, leftHandOriginalParent.transform.rotation.eulerAngles.z);
             Quaternion newRotRight = Quaternion.Euler(0, 0, rightHandOriginalParent.transform.rotation.eulerAngles.z);
