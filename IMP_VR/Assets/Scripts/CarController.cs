@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -16,7 +17,7 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
-        if (!TryGetComponent<Rigidbody>(out rb))
+        if (!TryGetComponent(out rb))
         {
             Debug.LogWarning("Couldn't get rigidbody of car!");
         }
@@ -24,10 +25,11 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.LeftController.TryGetFeatureValue(CommonUsages.primary2DAxis, out var dir))
-        {
-            Debug.Log("Moving on y axis: " + dir.y);
-            rb.AddForce(Vector3.forward * (dir.y * speed));
-        }
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDeviceCharacteristics characteristics = InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left;
+        InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
+        InputDevice device = devices[0];
+
+
     }
 }
