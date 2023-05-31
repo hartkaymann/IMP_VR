@@ -33,7 +33,6 @@ public class CarController : MonoBehaviour
 
         if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var dir) && dir.y != 0.0f)
         {
-            Debug.Log("Moving: " + dir.x);
             foreach (AxleInfo axleInfo in axleInfos)
             {
                 if (axleInfo.motor)
