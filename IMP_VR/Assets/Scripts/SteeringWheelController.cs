@@ -44,7 +44,7 @@ public class SteeringWheelController : XRBaseInteractable
         float totalAngle = FindWheelAngle();
 
         float angleDifference = currentAngle - totalAngle;
-        wheelTransform.Rotate(0, 0, -angleDifference);
+        wheelTransform.Rotate(0, angleDifference, 0);
 
         currentAngle = totalAngle;
         OnWheelRotation?.Invoke(angleDifference);

@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.XR;
-using static UnityEngine.InputManagerEntry;
 
 public class CarController : MonoBehaviour
 {
@@ -29,17 +26,20 @@ public class CarController : MonoBehaviour
         List<InputDevice> devices = new List<InputDevice>();
         InputDeviceCharacteristics characteristics = InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left;
         InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
+        if (devices.Count == 0)
+            return;
+
         InputDevice device = devices[0];
 
-        if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var dir))
+        if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var dir) && dir.y != 0.0f)
         {
             Debug.Log("Moving: " + dir.x);
             foreach (AxleInfo axleInfo in axleInfos)
             {
                 if (axleInfo.motor)
                 {
-                    axleInfo.leftWheel.motorTorque = dir.x * maxMotorTorque;
-                    axleInfo.rightWheel.motorTorque = dir.x * maxMotorTorque;
+                    axleInfo.leftWheel.motorTorque = dir.y * maxMotorTorque;
+                    axleInfo.rightWheel.motorTorque = dir.y * maxMotorTorque;
                 }
             }
         }
@@ -52,8 +52,11 @@ public class CarController : MonoBehaviour
         {
             if (axleInfo.steering)
             {
-                axleInfo.leftWheel.steerAngle += diff;
-                axleInfo.rightWheel.steerAngle += diff;
+                if (Mathf.Abs(axleInfo.leftWheel.steerAngle - diff) < maxSteeringAngle)
+                    axleInfo.leftWheel.steerAngle -= diff;
+
+                if (Mathf.Abs(axleInfo.rightWheel.steerAngle - diff) < maxSteeringAngle)
+                    axleInfo.rightWheel.steerAngle -= diff;
             }
 
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
