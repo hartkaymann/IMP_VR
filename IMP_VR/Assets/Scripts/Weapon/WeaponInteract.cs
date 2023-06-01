@@ -5,68 +5,55 @@ using UnityEngine;
 public class WeaponInteract : MonoBehaviour
 {
     private Rigidbody _enemyRb;
+    private float _slipTimeLimit = 3f;
+    private float _slipTime;
+    private float _maxSlipSpeed = 3f;
+    private bool _isSlip = false;
 
-    // test
-    private GameObject banana;
-
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         _enemyRb = this.GetComponent<Rigidbody>();
-
-        
-
-
-        // test
-        banana = GameObject.FindWithTag("Banana");
-        TestBanana();
     }
 
-    // Update is called once per frame
+    // Per every frame, it will check the condition of the fields for each type of weapon effect
+    // Only when the fields values matches with condition, then the effect will be started
     void Update()
     {
-        TestBanana();
-        if (_b){
-            print("--------------------------------");
-            print(this.transform.position);
-            print(this.transform.rotation);
-        }
-    }
-    private bool _b =false;
-    public void BananaSlip(){
-        print("--------------------------------");
-        print(this.transform.position);
-        print(this.transform.rotation);
-        _enemyRb.AddForce(new Vector3(0.5f,0f,0f), ForceMode.Impulse);
-        print("--------------------------------");
-        print(this.transform.position);
-        print(this.transform.rotation);
-        _b=true;
-    }
-
-
-
-    // test
-    private void TestBanana(){
-        this.transform.LookAt(banana.transform);
-        this.transform.position = Vector3.MoveTowards(transform.position, banana.transform.position, 0.3f * Time.deltaTime);
-    }
-
-    private bool a = false;
-    private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.name=="Plane") {
-            if (!a){
-            print("ys");
-            _enemyRb.AddForce(new Vector3(-5f,8f,0f), ForceMode.Impulse);
-            a=true;
+        // If the effect is slip, it will check the time for keeping the effect
+        if (_isSlip == true)
+        {
+            // If the time of the effect is still less than the limit time, it will keep showing the effect
+            if (_slipTime < _slipTimeLimit)
+            {
+                // Conducting basic effect
+                // It will rotate the enemy in round based on its middle&vertical axis
+                this.transform.RotateAround(this.transform.position, this.transform.up, SetSlipSpeed(_slipTime));
+                _slipTime += Time.deltaTime;
+            }
+            
+            // If the effect is still slip, but when the time is over,
+            // it will initialize the values of the fields and the effect will be finished
+            else 
+            {
+                _slipTime = 0f;
+                _isSlip = false;
             }
         }
     }
-    private void OnCollisionStay(Collision other) {
-        if(other.gameObject.name=="Plane") {
-            print("jfgv");
-            _enemyRb.AddTorque(new Vector3(0.2f,0f,0f));
-        }
+
+    // When the enemy is collided with banana,
+    // this BananaSlip() function will be called from the script WeaponManager attached to the weapons
+    // This function will set the values of the fields that are needed for slippery effect
+    public void BananaSlip(){
+        _isSlip = true;
+        _slipTime = 0f;
     }
+
+    // The slip speed will be fast at first and it will slow at last
+    // As time goes by, the speed will be slower
+    private float SetSlipSpeed(float currentTime) {
+        return _maxSlipSpeed * (1 - currentTime / _slipTimeLimit);
+    }
+
 }
