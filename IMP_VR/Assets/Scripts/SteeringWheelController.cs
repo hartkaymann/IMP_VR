@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -6,9 +7,11 @@ public class SteeringWheelController : XRBaseInteractable
 {
     [SerializeField] private Transform wheelTransform;
 
-    public UnityEvent<float> OnWheelRotation;
+    public event Action<float> OnWheelRotation;
 
     private float currentAngle = 0.0f;
+
+    public float CurrentAngle { get; private set; }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
@@ -41,7 +44,7 @@ public class SteeringWheelController : XRBaseInteractable
         float totalAngle = FindWheelAngle();
 
         float angleDifference = currentAngle - totalAngle;
-        wheelTransform.Rotate(0, 0, -angleDifference);
+        wheelTransform.Rotate(0, angleDifference, 0);
 
         currentAngle = totalAngle;
         OnWheelRotation?.Invoke(angleDifference);
