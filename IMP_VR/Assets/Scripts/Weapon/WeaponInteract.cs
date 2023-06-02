@@ -5,9 +5,9 @@ using UnityEngine;
 public class WeaponInteract : MonoBehaviour
 {
     private Rigidbody _enemyRb;
-    private float _slipTimeLimit = 3f;
+    private float _slipTimeLimit = 5f;
     private float _slipTime;
-    private float _maxSlipSpeed = 3f;
+    private float _maxSlipSpeed = 8f;
     private bool _isSlip = false;
 
     
@@ -53,7 +53,20 @@ public class WeaponInteract : MonoBehaviour
     // The slip speed will be fast at first and it will slow at last
     // As time goes by, the speed will be slower
     private float SetSlipSpeed(float currentTime) {
-        return _maxSlipSpeed * (1 - currentTime / _slipTimeLimit);
+        if (currentTime<_slipTimeLimit/3)
+        {
+            return _maxSlipSpeed;
+        }
+        else if (currentTime<_slipTimeLimit*2/3)
+        {
+            return _maxSlipSpeed*2/3;
+        }
+        else
+        {
+            return _maxSlipSpeed/3;
+        }
+
+        // return _maxSlipSpeed * (1 - currentTime / _slipTimeLimit);
     }
 
 }
