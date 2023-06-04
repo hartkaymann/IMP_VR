@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCarController : MonoBehaviour
+public class EnemyCarController4Wheels : MonoBehaviour
 {
     public WheelCollider[] wheels = new WheelCollider[4];
     GameObject[] wheelMesh = new GameObject[4];
