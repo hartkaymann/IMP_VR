@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyCarController4Wheels : MonoBehaviour
@@ -11,19 +12,27 @@ public class EnemyCarController4Wheels : MonoBehaviour
     public float rot = 45f; // The Angle of wheels's rotatiton
     Rigidbody rb;
 
+    public AudioSource carAudio;
+
     // Start is called before the first frame update
     void Start()
     {
-        wheelMesh = GameObject.FindGameObjectsWithTag("WheelMesh");
+        MeshRenderer[] children = transform.GetComponentsInChildren<MeshRenderer>();
+        wheelMesh = (from c in children
+                     where c.CompareTag("WheelMesh")
+                     select c.gameObject).ToArray();
 
-        for(int i = 0; i < wheelMesh.Length; i++)
+
+        for (int i = 0; i < wheelMesh.Length; i++)
         {
             wheels[i].transform.position = wheelMesh[i].transform.position;
         }
 
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0, -1, 0); // Lower the center of gravity down the y-axis.
+        carAudio = GetComponent<AudioSource>();
 
+        carAudio.Play();
     }
 
     // Update is called once per frame
@@ -35,12 +44,13 @@ public class EnemyCarController4Wheels : MonoBehaviour
         for (int i = 0; i < wheels.Length; i++)
         {
             wheels[i].motorTorque = Input.GetAxis("Vertical") * power;
+            
         }
 
         // Since only the front wheel should be angled, set the 'for' to be only the front wheels.
         for (int i = 0; i < 2; i++)
         {
-            wheels[i].steerAngle = Input.GetAxis("Horizontal") * rot;
+            wheels[i].steerAngle = Input.GetAxisRaw("Horizontal") * rot;
         }
     }
 

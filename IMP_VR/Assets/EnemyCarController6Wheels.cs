@@ -11,6 +11,8 @@ public class EnemyCarController6Wheels : MonoBehaviour
     public float rot = 45f; // The Angle of wheels's rotatiton
     Rigidbody rb;
 
+    public AudioSource carAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,9 @@ public class EnemyCarController6Wheels : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0, -1, 0); // Lower the center of gravity down the y-axis.
+        carAudio = GetComponent<AudioSource>();
 
+        carAudio.Play();
     }
 
     // Update is called once per frame
