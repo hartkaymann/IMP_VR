@@ -380,9 +380,10 @@ GameObject:
   - component: {fileID: 2871272059670402587}
   - component: {fileID: 2871272059670402584}
   - component: {fileID: 6896470047695654088}
+  - component: {fileID: -6455991135860186172}
   m_Layer: 0
   m_Name: Sports
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -553,6 +554,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6455991135860186172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3105697485056822848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3028641d5b39ad54fbc6647489774678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4403652404990197066
 GameObject:
   m_ObjectHideFlags: 0

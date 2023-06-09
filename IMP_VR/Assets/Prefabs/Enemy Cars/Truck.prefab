@@ -265,9 +265,10 @@ GameObject:
   - component: {fileID: 4168807671513839718}
   - component: {fileID: 4168807671513839719}
   - component: {fileID: 7874054395791935192}
+  - component: {fileID: -7378812242399372102}
   m_Layer: 0
   m_Name: Truck
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,6 +346,7 @@ MonoBehaviour:
   - {fileID: 4168807671309005543}
   power: 100
   rot: 45
+  carAudio: {fileID: 0}
 --- !u!82 &7874054395791935192
 AudioSource:
   m_ObjectHideFlags: 0
@@ -441,6 +443,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7378812242399372102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826931226965591951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3028641d5b39ad54fbc6647489774678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3877017269176337258
 GameObject:
   m_ObjectHideFlags: 0

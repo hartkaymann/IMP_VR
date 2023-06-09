@@ -71,6 +71,10 @@ public class WeaponManager : MonoBehaviour
     private IEnumerator Wait() 
     {
         yield return new WaitForSeconds(_explosionDelay);
+        Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        while(Vector3.Magnitude(transform.position - playerTransform.position) < 5)
+            yield return new WaitForSeconds(.1f);
+            
         Explode();
         yield return new WaitForSeconds(_destoryDelay);
         Destroy(this.gameObject);

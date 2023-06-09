@@ -185,9 +185,10 @@ GameObject:
   - component: {fileID: 5710720873208567629}
   - component: {fileID: 5710720873208567628}
   - component: {fileID: -1943739306238602794}
+  - component: {fileID: -202836948083381347}
   m_Layer: 0
   m_Name: SUV
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,6 +359,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-202836948083381347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864423821121300318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3028641d5b39ad54fbc6647489774678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5203099147526040779
 GameObject:
   m_ObjectHideFlags: 0

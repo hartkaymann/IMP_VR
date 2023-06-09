@@ -270,9 +270,10 @@ GameObject:
   - component: {fileID: 6352436082255499056}
   - component: {fileID: 6352436082255499059}
   - component: {fileID: -7786145708422823857}
+  - component: {fileID: 6846184089476424515}
   m_Layer: 0
   m_Name: Muscle 2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,6 +444,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6846184089476424515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118433819674472977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3028641d5b39ad54fbc6647489774678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6352436081219121888
 GameObject:
   m_ObjectHideFlags: 0
