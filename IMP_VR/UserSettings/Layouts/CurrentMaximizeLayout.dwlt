@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 136
+  controlID: 1992
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 111
+  controlID: 1993
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 112
+  controlID: 1994
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -231,21 +231,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 02fbffffee6e0000126f0000
+      m_ExpandedIDs: a4c2fefff8d9feff7adefeff02fbffffee6e0000126f0000b4ac0000f2ac000052ad0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Weapons
-        m_OriginalName: Weapons
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 28434
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -542,9 +542,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.42892498, y: 10.506706, z: -0.2013}
+    m_Target: {x: 0.1769002, y: 10.52056, z: -0.46145773}
     speed: 2
-    m_Value: {x: 0.42892498, y: 10.506706, z: -0.2013}
+    m_Value: {x: 0.1769002, y: 10.52056, z: -0.46145773}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -591,20 +591,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.1326317, y: 0.5544039, z: -0.0900374, w: 0.8166656}
+    m_Target: {x: 0.42758116, y: 0.5615775, z: -0.42206278, w: 0.5689269}
     speed: 2
-    m_Value: {x: 0.13263142, y: 0.5544027, z: -0.090037204, w: 0.81666386}
+    m_Value: {x: 0.42757908, y: 0.56157476, z: -0.42206073, w: 0.56892407}
   m_Size:
-    m_Target: 0.2195686
+    m_Target: 0.21432872
     speed: 2
-    m_Value: 0.2195686
+    m_Value: 0.21432872
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 0.4008
-    m_SpeedNormalized: 0.19999999
+    m_Speed: 1.0005
+    m_SpeedNormalized: 0.5
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -820,22 +820,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Weapon
+    - Assets/Prefabs/Enemy Cars
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Weapon
+  - Assets/Prefabs/Enemy Cars
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Jiyoung Moon\Study_Work\IMP\TeamProject_VR\IMP_VR
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 159}
-    m_SelectedIDs: 167b0000
-    m_LastClickedID: 31510
-    m_ExpandedIDs: 000000002c7800002e7800003078000000ca9a3b
+    scrollPos: {x: 0, y: 139}
+    m_SelectedIDs: ba9c0000
+    m_LastClickedID: 40122
+    m_ExpandedIDs: 000000002c7800002e780000307800000e7b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -863,7 +863,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002c7800002e78000030780000
+    m_ExpandedIDs: 000000002c7800002e7800003078000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -888,8 +888,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 126f0000
-    m_LastClickedInstanceID: 28434
+    m_SelectedInstanceIDs: b4ac0000
+    m_LastClickedInstanceID: 44212
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -1011,7 +1011,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 28434
+  m_LastInspectedObjectInstanceID: 44212
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
