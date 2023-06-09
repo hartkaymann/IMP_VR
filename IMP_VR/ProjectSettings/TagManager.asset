@@ -7,11 +7,14 @@ TagManager:
   - Grenade
   - Banana
   - Enemy
+  - Gun
+  - Bullet
+  - Box
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interactable
   - Water
   - UI
   - 
