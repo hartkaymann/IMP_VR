@@ -9,6 +9,9 @@ public class CarController : MonoBehaviour
     public float maxMotorTorque; // maximum torque the motor can apply to wheel
     public float maxSteeringAngle; // maximum steer angle the wheel can have
 
+    [SerializeField] private AudioSource audioIdle;
+    [SerializeField] private AudioSource audioDrive;
+
     private Rigidbody rb;
 
     private readonly float gravity = -35;
@@ -38,15 +41,25 @@ public class CarController : MonoBehaviour
 
         InputDevice device = devices[0];
 
-        if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var dir) && dir.y != 0.0f)
+        if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var dir))
         {
-            foreach (AxleInfo axleInfo in axleInfos)
+            if (dir.y != 0.0f)
             {
-                if (axleInfo.motor)
+                if (audioIdle.isPlaying) audioIdle.Stop();
+                if (!audioDrive.isPlaying) audioDrive.Play();
+
+                foreach (AxleInfo axleInfo in axleInfos)
                 {
-                    axleInfo.leftWheel.motorTorque = dir.y * maxMotorTorque;
-                    axleInfo.rightWheel.motorTorque = dir.y * maxMotorTorque;
+                    if (axleInfo.motor)
+                    {
+                        axleInfo.leftWheel.motorTorque = dir.y * maxMotorTorque;
+                        axleInfo.rightWheel.motorTorque = dir.y * maxMotorTorque;
+                    }
                 }
+            }
+            else {
+                if (!audioIdle.isPlaying) audioIdle.Play();
+                if (audioDrive.isPlaying) audioDrive.Stop();
             }
         }
     }
