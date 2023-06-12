@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/VR.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4da0055517ae72f4e9f58da47eb4ebd5
+  - enabled: 1
+    path: Assets/Scenes/Combine.unity
+    guid: 0b268c4deb174dd4c9add7608e49e03f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 3f98bfdd54e0c5845ad31384d320794d,
       type: 2}
