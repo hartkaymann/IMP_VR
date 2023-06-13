@@ -18,7 +18,7 @@ public class CarController : MonoBehaviour
 
     private void Awake()
     {
-        Physics.gravity = new Vector3(0, gravity, 0);
+        //Physics.gravity = new Vector3(0, gravity, 0);
     }
 
     void Start()
@@ -33,7 +33,7 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        List<InputDevice> devices = new List<InputDevice>();
+        List<InputDevice> devices = new();
         InputDeviceCharacteristics characteristics = InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left;
         InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
         if (devices.Count == 0)
