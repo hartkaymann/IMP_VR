@@ -11,6 +11,13 @@ public class CarController : MonoBehaviour
 
     private Rigidbody rb;
 
+    private readonly float gravity = -35;
+
+    private void Awake()
+    {
+        Physics.gravity = new Vector3(0, gravity, 0);
+    }
+
     void Start()
     {
         if (!TryGetComponent(out rb))
