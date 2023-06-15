@@ -17,14 +17,14 @@ public class SteeringWheelController : XRBaseInteractable
     {
         base.OnSelectEntered(args);
         currentAngle = FindWheelAngle();
-        Debug.Log("Select entered");
+        //Debug.Log("Select entered");
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
         base.OnSelectExited(args);
         currentAngle = FindWheelAngle();
-        Debug.Log("Select exited");
+        //Debug.Log("Select exited");
     }
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -40,7 +40,7 @@ public class SteeringWheelController : XRBaseInteractable
 
     private void RotateWheel()
     {
-        Debug.Log("Rotating wheel!");
+        //Debug.Log("Rotating wheel!");
         float totalAngle = FindWheelAngle();
 
         float angleDifference = currentAngle - totalAngle;

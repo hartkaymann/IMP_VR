@@ -289,6 +289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _explosionEffect: {fileID: 0}
   _bullet: {fileID: 8390748639239621367, guid: 0cca1b28b9502b547965f618df43b4d5, type: 3}
+  _grenadeExplosionSound: {fileID: 0}
+  _gunShotSound: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893, type: 3}
 --- !u!114 &2406239284103311199
 MonoBehaviour:
   m_ObjectHideFlags: 0

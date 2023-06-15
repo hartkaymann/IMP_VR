@@ -55,7 +55,7 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
             targetDir += 360;
 
 
-        //·¹ÀÌÄ³½ºÆÃ
+        //ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½
         RaycastHit[] hits = Physics.RaycastAll(transform.position + Vector3.up, new Vector3(Mathf.Cos((curDir + 45) * Mathf.Deg2Rad), 0, Mathf.Sin((curDir + 45) * Mathf.Deg2Rad)), 10f);
 
         for (int i = 0; i < hits.Length; i++)
@@ -79,7 +79,7 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("a");
+            //Debug.Log("a");
         }
 
         if(targetDir - curDir < 10)
@@ -101,7 +101,7 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
     void FixedUpdate()
     {
         WheelPosAndAni();
-        Debug.Log(GetPlayerAngle());
+        //Debug.Log(GetPlayerAngle());
 
         // Through the 'for', move the entire wheel collider with as much force as power according to the vertical input.
         for (int i = 0; i < wheels.Length; i++)
@@ -132,10 +132,10 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         float dot = Vector3.Dot(collision.contacts[0].normal, transform.forward.normalized);
-        //Á¤¸éÀ¸·Î Ãæµ¹ ½Ã
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½
         if (dot < -0.7f)
         {
-            Debug.Log("Back");
+            //Debug.Log("Back");
             StartCoroutine(BackCoroutine());
         }
     }

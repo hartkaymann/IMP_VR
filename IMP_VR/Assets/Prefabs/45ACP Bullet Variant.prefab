@@ -74,7 +74,9 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2432609402145983480, guid: 674adf642abf5614aae2995443c8250f, type: 3}
+    - {fileID: 2166306331909546791, guid: 674adf642abf5614aae2995443c8250f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 674adf642abf5614aae2995443c8250f, type: 3}
 --- !u!1 &8390748639239621367 stripped
 GameObject:
