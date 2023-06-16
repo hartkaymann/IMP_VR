@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class HPBar : MonoBehaviour
 {
     public GameObject gameOverText;
@@ -41,5 +41,13 @@ public class HPBar : MonoBehaviour
     private void OnBarFilled()
     {
         gameOverText.SetActive(true);
+        Invoke(nameof(ExitGame), 5);
+    }
+
+                
+
+    private void ExitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

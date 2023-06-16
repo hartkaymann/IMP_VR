@@ -166,5 +166,10 @@ public class WeaponManager : MonoBehaviour
     }
 
 
+    public void BananaScaleUp()
+    {
+        this.transform.localScale = new Vector3(20,20,20);
+    }
+
 
 }

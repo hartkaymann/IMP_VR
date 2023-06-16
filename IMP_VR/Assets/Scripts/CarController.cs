@@ -62,6 +62,12 @@ public class CarController : MonoBehaviour
                 if (audioDrive.isPlaying) audioDrive.Stop();
             }
         }
+
+        if (Mathf.Abs(transform.rotation.z) > 45)
+        {
+            Vector3 oldRot = transform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
+        }
     }
 
     public void TurnWheels(float diff)
