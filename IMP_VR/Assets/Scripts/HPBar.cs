@@ -7,12 +7,9 @@ public class HPBar : MonoBehaviour
 {
     public GameObject gameOverText;
     public float carMaxHealth = 100f;
-    public float carCurrentHealth = 100f;
+    public static float carCurrentHealth = 100f;
 
     private Slider mySlider;
-    private float timer;
-    private bool gazedAt;
-    private Coroutine fillBarRoutine;
 
     // Start is called before the first frame update
     void Start()
