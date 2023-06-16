@@ -13,8 +13,8 @@ public class WeaponManager : MonoBehaviour
     private string _weaponType;    
 
     // fields that are needed for grenade explosion effect
-    private float _explosionDelay = 3f;
-    private float _destoryDelay = 0.5f;
+    private float _explosionDelay = 2f;
+    private float _destoryDelay = 0.2f;
     private int _explosionRad = 4;
     private int _explosionForce = 400;
     [SerializeField] private GameObject _explosionEffect;
@@ -43,6 +43,16 @@ public class WeaponManager : MonoBehaviour
         _audioSource = this.GetComponent<AudioSource>();
     }
 
+    private void Update() {
+        if (_weaponType == "Bullet")
+        {
+            if (this.transform.position.y <= 0.2)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
     // Grenade effect
     // If it is Grenade, it will explode after a few seconds of throwing and the explosion will affect to the enemy
     public void TriggerBoom()
@@ -54,7 +64,8 @@ public class WeaponManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_explosionDelay);
         Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        while(Vector3.Magnitude(transform.position - playerTransform.position) < 0.5f)
+        //Debug.Log(Vector3.Magnitude(transform.position - playerTransform.position));
+        while(Vector3.Magnitude(transform.position - playerTransform.position) < 2f)
             yield return new WaitForSeconds(.1f);
             
         Explode();

@@ -66,7 +66,7 @@ public class CarController : MonoBehaviour
 
     public void TurnWheels(float diff)
     {
-        Debug.Log("Turning Wheels " + diff);
+        //Debug.Log("Turning Wheels " + diff);
         foreach (AxleInfo axleInfo in axleInfos)
         {
             if (axleInfo.steering)
