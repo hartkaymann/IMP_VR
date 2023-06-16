@@ -54,7 +54,7 @@ public class WeaponManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_explosionDelay);
         Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        while(Vector3.Magnitude(transform.position - playerTransform.position) < 1)
+        while(Vector3.Magnitude(transform.position - playerTransform.position) < 0.5f)
             yield return new WaitForSeconds(.1f);
             
         Explode();
@@ -71,7 +71,7 @@ public class WeaponManager : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRad);
         foreach (Collider nearByObjects in colliders)
         {
-            if (nearByObjects.tag == "Grenade")
+            if (nearByObjects.tag == "Enemy")
             {
                 Rigidbody rb = nearByObjects.GetComponent<Rigidbody>();
 
@@ -140,6 +140,18 @@ public class WeaponManager : MonoBehaviour
     {
         Vector3 boxPos = GameObject.FindGameObjectWithTag("Box").transform.position + new Vector3(0f, 0.08f, 0f);
         this.transform.position = boxPos;
+    }
+
+
+    public void RemoveKinematic()
+    {
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+    }
+
+    public void RemoveParent()
+    {
+        this.transform.SetParent(null);
     }
 
 

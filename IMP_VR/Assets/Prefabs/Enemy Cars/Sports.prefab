@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8980958225396511419}
   - component: {fileID: 690195398543681985}
   - component: {fileID: 117958447078784288}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sports wheel rear right
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2871272058575209106}
   - component: {fileID: 2871272058575209107}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_RL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2871272058602853640}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2871272058926714209}
   - component: {fileID: 2871272058926714208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_RR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2871272059363672732}
   - component: {fileID: 2871272059363672735}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2871272060649780586}
   - component: {fileID: 2871272060649780589}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 2871272059670402584}
   - component: {fileID: 6896470047695654088}
   - component: {fileID: -6455991135860186172}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sports
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3028641d5b39ad54fbc6647489774678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slipperySound: {fileID: 0}
 --- !u!1 &4403652404990197066
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +579,7 @@ GameObject:
   - component: {fileID: 4513257758820003221}
   - component: {fileID: 7121744615457289774}
   - component: {fileID: 4620063995704639270}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sports wheel front right
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -662,7 +663,7 @@ GameObject:
   - component: {fileID: 1028073924074182953}
   - component: {fileID: 4298205326906411675}
   - component: {fileID: 6280325287814196983}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sports wheel front left
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -746,7 +747,7 @@ GameObject:
   - component: {fileID: 9125320296753492057}
   - component: {fileID: 6007260759284533748}
   - component: {fileID: 274005711857113689}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sports
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,7 +835,7 @@ GameObject:
   - component: {fileID: 8452854755539814710}
   - component: {fileID: 561871361460768565}
   - component: {fileID: 6755850904449563046}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sports wheel rear left
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -919,6 +920,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftNum2Kill
       objectReference: {fileID: 0}
+    - target: {fileID: 2437782678473856113, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067310283715425132, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
         type: 3}
       propertyPath: m_RootOrder
@@ -978,6 +989,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101621489625921105, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886683537640004888, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57, type: 3}

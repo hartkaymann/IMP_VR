@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(AudioSource))]
 public class WeaponInteract : MonoBehaviour
 {
     private Rigidbody _enemyRb;
@@ -18,11 +20,16 @@ public class WeaponInteract : MonoBehaviour
     private Transform _leftNum2KillNum;
     private TextMeshProUGUI _leftNum2KillNumText;
     private int _leftNumLife = 5;
+
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _slipperySound;
+
     
     void Start()
     {
         _enemyRb = this.GetComponent<Rigidbody>();
         ShowLeftNumLife();
+        _audioSource = this.GetComponent<AudioSource>();
     }
 
     // Per every frame, it will check the condition of the fields for each type of weapon effect
@@ -57,6 +64,7 @@ public class WeaponInteract : MonoBehaviour
     public void BananaSlip(){
         _isSlip = true;
         _slipTime = 0f;
+        _audioSource.PlayOneShot(_slipperySound, 0.5f);
     }
 
     // The slip speed will be fast at first and it will slow at last
