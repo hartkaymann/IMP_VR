@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 
 [RequireComponent(typeof(MeshRenderer))]
@@ -33,6 +32,7 @@ public class TerrainGenerator : MonoBehaviour
         Populate();
     }
 
+    // Generates ground plane
     private void GeneratePlane(Vector2 size, int resolution, float roughness)
     {
         vertices = new();
@@ -43,6 +43,7 @@ public class TerrainGenerator : MonoBehaviour
 
         Vector2 center = Vector2.one * resolution / 2;
 
+        // Create vertices
         for (int z = 0; z < resolution + 1; z++)
         {
             for (int x = 0; x < resolution + 1; x++)
@@ -55,6 +56,7 @@ public class TerrainGenerator : MonoBehaviour
             }
         }
 
+        // Set triangulation order
         for (int row = 0; row < resolution; row++)
         {
             for (int column = 0; column < resolution; column++)
@@ -81,6 +83,7 @@ public class TerrainGenerator : MonoBehaviour
         groundMesh.triangles = triangles.ToArray();
     }
 
+    // Places rock and plant assets on random locations of the ground mesh
     private void Populate()
     {
         Transform objectParent = transform.Find("Objects");
@@ -99,18 +102,21 @@ public class TerrainGenerator : MonoBehaviour
                 if (rand == 0)
                 {
                     int i = (row * resolution) + row + column;
+                    // Instantiate random rock prefab
                     Instantiate(rockPrefabs[i % rockPrefabs.Length], vertices[i] - (Vector3.up * 0.25f), Quaternion.Euler(0f, Random.Range(0, 360), 0f), objectParent);
                 }
                 else if (rand >= 9)
                 {
                     // Place plant
                     int i = (row * resolution) + row + column;
+                    // Instantiate ranodm plant prefab
                     Instantiate(plantPrefabs[i % plantPrefabs.Length], vertices[i], Quaternion.Euler(0f, Random.Range(0, 360), 0f), objectParent);
                 }
             }
         }
     }
 
+    // Basic mapping function (form glsl)
     float map(float value, float min1, float max1, float min2, float max2)
     {
         return min2 + (value - min1) * (max2 - min2) / (max1 - min1);

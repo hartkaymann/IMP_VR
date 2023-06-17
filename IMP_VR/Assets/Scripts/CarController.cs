@@ -23,6 +23,7 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
+        // Get left controller device
         List<InputDevice> devices = new List<InputDevice>();
         InputDeviceCharacteristics characteristics = InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left;
         InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
@@ -31,6 +32,7 @@ public class CarController : MonoBehaviour
 
         InputDevice device = devices[0];
 
+        // If joystick is used, change torque of all the wheels that are marked as motors
         if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var dir) && dir.y != 0.0f)
         {
             foreach (AxleInfo axleInfo in axleInfos)
@@ -44,6 +46,7 @@ public class CarController : MonoBehaviour
         }
     }
 
+    // Rotate wheels depending on the steering wheels rotation
     public void TurnWheels(float diff)
     {
         Debug.Log("Turning Wheels " + diff);

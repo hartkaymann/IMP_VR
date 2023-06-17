@@ -31,6 +31,7 @@ public class SteeringWheelController : XRBaseInteractable
     {
         base.ProcessInteractable(updatePhase);
 
+        // Update wheel rotation while wheel is grabbed
         if(updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
         {
             if (isSelected)
@@ -38,6 +39,7 @@ public class SteeringWheelController : XRBaseInteractable
         }
     }
 
+    // Updates wheel rotation by calculating the difference from the last angle and the new angle of the hand
     private void RotateWheel()
     {
         Debug.Log("Rotating wheel!");

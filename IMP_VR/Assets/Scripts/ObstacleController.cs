@@ -9,6 +9,7 @@ public class ObstacleController : MonoBehaviour
     {
         if(collision.collider.gameObject.tag == "Player")
         {
+            // Remove rigidbody contraints as soon as car collides with an obstacle
             if(TryGetComponent<Rigidbody>(out var rb))
             {
                 rb.constraints = RigidbodyConstraints.None;
