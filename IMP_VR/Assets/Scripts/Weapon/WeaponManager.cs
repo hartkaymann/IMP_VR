@@ -14,17 +14,21 @@ public class WeaponManager : MonoBehaviour
 
     // fields that are needed for grenade explosion effect
     private float _explosionDelay = 2f;
-    private float _destoryDelay = 0.5f;
+    private float _destoryDelay = 0.2f;
     private int _explosionRad = 4;
     private int _explosionForce = 400;
     [SerializeField] private GameObject _explosionEffect;
 
     // fields that are needed for gun shooting effect
     private Transform _barrel;
-    private float _shootForce = 10f;
+    private float _shootForce = 100f;
     [SerializeField] private GameObject _bullet;
+
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _grenadeExplosionSound;
+    [SerializeField] private AudioClip _gunShotSound;
+
     
-    private InputDevice _rightController;
 
     void Start()
     {
@@ -36,30 +40,18 @@ public class WeaponManager : MonoBehaviour
         {
             _barrel = this.transform.Find("Barrel_Location");
         }
-
-
-        // Get right controller input for Gun shooting
-        InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDevices.GetDevicesWithCharacteristics(rightControllerCharacteristics, devices);
-
-        if (devices.Count > 0)
-        {
-            _rightController = devices[0];
-        }
-        
+        _audioSource = this.GetComponent<AudioSource>();
     }
 
-    private void Update() 
-    {
-        _rightController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-        if ((triggerValue > 0.2f) && (_weaponType=="Gun") && (this.GetComponent<Rigidbody>().isKinematic==false))
+    private void Update() {
+        if (_weaponType == "Bullet")
         {
-            Shoot();
+            if (this.transform.position.y <= 0.2)
+            {
+                Destroy(this.gameObject);
+            }
         }
-
     }
-
 
     // Grenade effect
     // If it is Grenade, it will explode after a few seconds of throwing and the explosion will affect to the enemy
@@ -72,7 +64,8 @@ public class WeaponManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_explosionDelay);
         Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        while(Vector3.Magnitude(transform.position - playerTransform.position) < 5)
+        //Debug.Log(Vector3.Magnitude(transform.position - playerTransform.position));
+        while(Vector3.Magnitude(transform.position - playerTransform.position) < 2f)
             yield return new WaitForSeconds(.1f);
             
         Explode();
@@ -82,20 +75,23 @@ public class WeaponManager : MonoBehaviour
 
     private void Explode()
     {
-        //sound plays
-
         Instantiate(_explosionEffect, transform.position, transform.rotation);
+
+        _audioSource.PlayOneShot(_grenadeExplosionSound, 0.5f);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRad);
         foreach (Collider nearByObjects in colliders)
         {
-            Rigidbody rb = nearByObjects.GetComponent<Rigidbody>();
-
-            if (rb != null)
+            if (nearByObjects.tag == "Enemy")
             {
-                rb.AddExplosionForce(_explosionForce, transform.position, _explosionRad);
-            }
+                Rigidbody rb = nearByObjects.GetComponent<Rigidbody>();
 
+                if (rb != null)
+                {
+                    rb.AddExplosionForce(_explosionForce, transform.position, _explosionRad);
+                    Destroy(nearByObjects.gameObject);
+                }
+            }
             
         }
     }
@@ -130,7 +126,7 @@ public class WeaponManager : MonoBehaviour
             if (_weaponType == "Bullet")
             {
                 Destroy(this.gameObject);
-                Destroy(other.gameObject);
+                Debug.Log("Bullet collision!");
             }
 
         }
@@ -139,12 +135,13 @@ public class WeaponManager : MonoBehaviour
 
 
     // Gun effect
-    // If it is Gun, when the trigger is clicked, it will instantiate bullet to the barrel point and shoot it
+    // If it is Gun, when the trigger is clicked (Activated), it will instantiate bullet to the barrel point and shoot it
     public void Shoot()
     {
         GameObject bullet = Instantiate(_bullet, _barrel.position, _barrel.transform.rotation);
         Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
         bulletRB.AddForce(_barrel.forward*_shootForce, ForceMode.Impulse);
+        _audioSource.PlayOneShot(_gunShotSound, 0.5f);
     }
 
     
@@ -156,6 +153,23 @@ public class WeaponManager : MonoBehaviour
         this.transform.position = boxPos;
     }
 
+
+    public void RemoveKinematic()
+    {
+        Rigidbody rb = this.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+    }
+
+    public void RemoveParent()
+    {
+        this.transform.SetParent(null);
+    }
+
+
+    public void BananaScaleUp()
+    {
+        this.transform.localScale = new Vector3(20,20,20);
+    }
 
 
 }

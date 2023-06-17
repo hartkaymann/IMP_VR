@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class HPBar : MonoBehaviour
 {
     public GameObject gameOverText;
     public float carMaxHealth = 100f;
-    public float carCurrentHealth = 100f;
+    public static float carCurrentHealth = 100f;
 
     private Slider mySlider;
-    private float timer;
-    private bool gazedAt;
-    private Coroutine fillBarRoutine;
 
     // Start is called before the first frame update
     void Start()
@@ -44,5 +41,13 @@ public class HPBar : MonoBehaviour
     private void OnBarFilled()
     {
         gameOverText.SetActive(true);
+        Invoke(nameof(ExitGame), 5);
+    }
+
+                
+
+    private void ExitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

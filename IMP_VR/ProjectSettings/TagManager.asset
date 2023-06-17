@@ -10,6 +10,7 @@ TagManager:
   - Gun
   - Bullet
   - Box
+  - WheelMesh
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Interactable
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Interactor
+  - Enemy Car
+  - Bullet
   - 
   - 
   - 

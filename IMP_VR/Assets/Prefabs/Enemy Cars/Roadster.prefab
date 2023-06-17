@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1593148666890571166}
   - component: {fileID: 6833551059499621424}
   - component: {fileID: 4414617095227031955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roadster wheel rear left
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9060696720686594820}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6833551059499621424
 MeshFilter:
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5502765023295337695}
   - component: {fileID: 3783785488425793200}
   - component: {fileID: 3939674249434632714}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roadster wheel front right
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9060696720686594820}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3783785488425793200
 MeshFilter:
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 6939255239038585616}
   - component: {fileID: 2844108413442671072}
   - component: {fileID: 3773821438907581430}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roadster wheel rear right
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9060696720686594820}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2844108413442671072
 MeshFilter:
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 6773603270073987337}
   - component: {fileID: 5926837802574149679}
   - component: {fileID: 8227410749168846284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roadster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9060696720686594820}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5926837802574149679
 MeshFilter:
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 7422042981686166915}
   - component: {fileID: 5937804515898038902}
   - component: {fileID: 9005488289791624393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roadster wheel front left
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9060696720686594820}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5937804515898038902
 MeshFilter:
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 8805864195077251654}
   - component: {fileID: 7763536438703420351}
   - component: {fileID: 7545138624915010450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roadster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -458,6 +458,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2394235268461641935}
   - {fileID: 6773603270073987337}
   - {fileID: 7422042981686166915}
   - {fileID: 5502765023295337695}
@@ -624,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3028641d5b39ad54fbc6647489774678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slipperySound: {fileID: 8300000, guid: e6e0f14e21226e640854ef9598f2a78d, type: 3}
 --- !u!1 &8805864193132097403
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8805864193132097402}
   - component: {fileID: 8805864193132097401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8805864193232533157}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +721,7 @@ Transform:
   - {fileID: 8805864194067532015}
   - {fileID: 8805864194743760041}
   m_Father: {fileID: 9060696720686594820}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8805864193316485889
 GameObject:
@@ -731,7 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8805864193316485888}
   - component: {fileID: 8805864193316485895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8805864194067532015}
   - component: {fileID: 8805864194067532014}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_RR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8805864194743760041}
   - component: {fileID: 8805864194743760042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_RL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,3 +909,98 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
+--- !u!1001 &8587364512821770551
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9060696720686594820}
+    m_Modifications:
+    - target: {fileID: 2437782678473856113, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Name
+      value: LeftNum2Kill
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437782678473856113, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067310283715425132, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101621489625921105, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886683537640004888, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57, type: 3}
+--- !u!4 &2394235268461641935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+    type: 3}
+  m_PrefabInstance: {fileID: 8587364512821770551}
+  m_PrefabAsset: {fileID: 0}

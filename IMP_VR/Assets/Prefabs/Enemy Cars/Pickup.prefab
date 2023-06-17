@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8540529319514522187}
   - component: {fileID: 3706072483888559871}
   - component: {fileID: 8150019179824471925}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4884613200945048275}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3706072483888559871
 MeshFilter:
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 73179479280842490}
   - component: {fileID: 6829458053382304894}
   - component: {fileID: 6161011046673951422}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup wheel rear left
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4884613200945048275}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6829458053382304894
 MeshFilter:
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 3259273869779738098}
   - component: {fileID: 3953649109882684310}
   - component: {fileID: 4092799289424970732}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup wheel front right
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4884613200945048275}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3953649109882684310
 MeshFilter:
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 6512577414265093061}
   - component: {fileID: 7074227459912655089}
   - component: {fileID: 6322997364912764516}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup wheel front left
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4884613200945048275}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7074227459912655089
 MeshFilter:
@@ -350,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4918802356049490768}
   - component: {fileID: 4918802356049490769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4918802356117247434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ Transform:
   - {fileID: 4918802357340672313}
   - {fileID: 4918802357161468087}
   m_Father: {fileID: 4884613200945048275}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4918802357161468073
 GameObject:
@@ -447,7 +447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4918802357161468087}
   - component: {fileID: 4918802357161468086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_RL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4918802357340672313}
   - component: {fileID: 4918802357340672262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_RR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4918802357459192086}
   - component: {fileID: 4918802357459192087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 4918802356632486923}
   - component: {fileID: -107119960215538034}
   - component: {fileID: -4052259794271249594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -656,6 +656,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 676433973501142396}
   - {fileID: 8540529319514522187}
   - {fileID: 6512577414265093061}
   - {fileID: 3259273869779738098}
@@ -822,6 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3028641d5b39ad54fbc6647489774678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slipperySound: {fileID: 8300000, guid: e6e0f14e21226e640854ef9598f2a78d, type: 3}
 --- !u!1 &5707587526741917369
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +835,7 @@ GameObject:
   - component: {fileID: 3147152278123626977}
   - component: {fileID: 7876338828489553282}
   - component: {fileID: 6419761251163912974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup wheel rear right
   m_TagString: WheelMesh
   m_Icon: {fileID: 0}
@@ -853,7 +855,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4884613200945048275}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7876338828489553282
 MeshFilter:
@@ -906,3 +908,98 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &6878500561614642308
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4884613200945048275}
+    m_Modifications:
+    - target: {fileID: 2437782678473856113, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Name
+      value: LeftNum2Kill
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437782678473856113, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067310283715425132, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101621489625921105, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886683537640004888, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57, type: 3}
+--- !u!4 &676433973501142396 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6203280554731190776, guid: 8bb2dc03e8b80b04e89fa463dd9a3e57,
+    type: 3}
+  m_PrefabInstance: {fileID: 6878500561614642308}
+  m_PrefabAsset: {fileID: 0}
