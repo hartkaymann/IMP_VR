@@ -43,9 +43,10 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
 
     float GetPlayerAngle()
     {
-        Vector3 dir = (target.position - transform.position).normalized;
-        float targetDir = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg;
+        Vector3 dir = (target.position - transform.position).normalized; // Normal vector towards the player
+        float targetDir = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg; // The angle of the normal vector toward the player
 
+        // Adjust the angle calculation method to calculate 360 degrees.
         float curDir = 90 - transform.rotation.eulerAngles.y;
         if (targetDir < 0)
             targetDir += 360;
@@ -55,9 +56,8 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
             targetDir += 360;
 
 
-        //����ĳ����
+        // Launches a Raycast to Detect Obstacles. Launch the raycast by tilting 45 degrees in the direction of progress.
         RaycastHit[] hits = Physics.RaycastAll(transform.position + Vector3.up, new Vector3(Mathf.Cos((curDir + 45) * Mathf.Deg2Rad), 0, Mathf.Sin((curDir + 45) * Mathf.Deg2Rad)), 10f);
-
         for (int i = 0; i < hits.Length; i++)
         {
             if (hits[i].transform == transform) continue;
@@ -65,8 +65,8 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
 
             return 1f;
         }
-        hits = Physics.RaycastAll(transform.position + Vector3.up, new Vector3(Mathf.Cos((curDir - 45) * Mathf.Deg2Rad), 0, Mathf.Sin((curDir - 45) * Mathf.Deg2Rad)), 10f);
 
+        hits = Physics.RaycastAll(transform.position + Vector3.up, new Vector3(Mathf.Cos((curDir - 45) * Mathf.Deg2Rad), 0, Mathf.Sin((curDir - 45) * Mathf.Deg2Rad)), 10f);
         for (int i = 0; i < hits.Length; i++)
         {
             if (hits[i].transform == transform) continue;
@@ -75,14 +75,8 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
             return -1f;
         }
 
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Debug.Log("a");
-        }
-
-        if(targetDir - curDir < 10)
+        // Returns the opposite direction of the direction in which the raycast detected the collision.
+        if (targetDir - curDir < 10)
         {
             return 0;
         }
@@ -101,15 +95,14 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
     void FixedUpdate()
     {
         WheelPosAndAni();
-        //Debug.Log(GetPlayerAngle());
 
-        // Through the 'for', move the entire wheel collider with as much force as power according to the vertical input.
+        // If isBack is true, emeyies reverse.
         for (int i = 0; i < wheels.Length; i++)
         {
             wheels[i].motorTorque = (isBack ? -power : power);
         }
 
-        // Since only the front wheel should be angled, set the 'for' to be only the front wheels.
+        // Check where the player is, and rotate the front wheel toward the player.
         for (int i = 0; i < 2; i++)
         {
             wheels[i].steerAngle = (isBack ? 0 : GetPlayerAngle() * rot);
@@ -118,6 +111,7 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
 
     void WheelPosAndAni()
     {
+        // Wheel Positioning
         Vector3 wheelPosition = Vector3.zero;
         Quaternion wheelRotation = Quaternion.identity;
 
@@ -132,10 +126,9 @@ public class EnemyCarController4WheelsAI : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         float dot = Vector3.Dot(collision.contacts[0].normal, transform.forward.normalized);
-        //�������� �浹 ��
+        // Run BackCoroutine when enemies hit an obstacle
         if (dot < -0.7f)
         {
-            //Debug.Log("Back");
             StartCoroutine(BackCoroutine());
         }
     }
